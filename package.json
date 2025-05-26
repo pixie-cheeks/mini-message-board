@@ -32,7 +32,6 @@
     "husky": "9.1.7",
     "lint-staged": "16.0.0",
     "prettier": "3.5.3",
-    "prettier-plugin-ejs": "1.0.3",
     "stylelint": "16.19.1"
   },
   "stylelint": {
@@ -48,7 +47,6 @@
   "prettier": {
     "singleQuote": true,
     "plugins": [
-      "prettier-plugin-ejs",
       "@awmottaz/prettier-plugin-void-html"
     ]
   },
@@ -56,15 +54,20 @@
     "version": "0.2",
     "language": "en,en-GB,lorem",
     "allowCompoundWords": true,
+    "enableGlobDot": true,
     "dictionaries": [
       "html"
     ],
     "words": [
+      "Amando",
       "awmottaz",
       "esbuild",
+      "besthyhy",
       "unrs"
     ],
     "ignorePaths": [
+      ".git",
+      ".husky/_",
       "dist",
       "node_modules",
       "pnpm-lock.yaml"

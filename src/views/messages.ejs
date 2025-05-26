@@ -1,0 +1,12 @@
+<div class="messages">
+  <h1 class="main__heading">Messages</h1>
+  <ul>
+    <% for (const {text, user, added} of messages) { %>
+    <li>
+      <h2>User: <%= user %></h2>
+      <p><em>Date:</em> <%= added %></p>
+      <p><%= text %></p>
+    </li>
+    <% } %>
+  </ul>
+</div>
