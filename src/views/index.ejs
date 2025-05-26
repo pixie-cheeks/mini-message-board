@@ -11,11 +11,16 @@
 </head>
 
 <body class="body root__body">
-  <main class="main">
+  <%- include('navbar') %>
+  <main class="main body__container">
     <% if (locals.messages) { %>
     <%- include('messages', {messages}) %>
     <a href="/new" class="main__add-link add-link">Add a new message</a>
-    <% } else { %>
+    <% } else if (locals.message) { %>
+    <%- include('message', {message}) %>
+    <% } else if (locals.error) { %>
+    <%- include('error', {error}) %>
+    <% } else  { %>
     <%- include('form') %>
     <% } %>
   </main>

@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'node:path';
 import { indexRouter } from './routers/index-router.js';
 import { newRouter } from './routers/new-router.js';
+import { errorHandler } from './errors.js';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3_000;
@@ -15,8 +16,10 @@ app.set('view engine', 'ejs');
 app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/', indexRouter);
 app.use('/new', newRouter);
+app.use('/', indexRouter);
+
+app.use(errorHandler);
 
 app.listen(PORT, HOSTNAME, () => {
   console.log(`Express app - listening on ${basePage}`);

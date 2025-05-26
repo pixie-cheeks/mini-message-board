@@ -1,21 +1,9 @@
 import { Router } from 'express';
+import { getIndex, getUser } from '../controllers/index-controller.js';
 
 const indexRouter = Router();
-const messages = [
-  {
-    text: 'Hi there!',
-    user: 'Amando',
-    added: new Date(),
-  },
-  {
-    text: 'Hello World!',
-    user: 'Charles',
-    added: new Date(),
-  },
-];
 
-indexRouter.get('/', (_req, res) => {
-  res.render('index', { title: 'Mini Messageboard', messages });
-});
+indexRouter.get('/', getIndex);
+indexRouter.get('/:id', getUser);
 
-export { indexRouter, messages };
+export { indexRouter };

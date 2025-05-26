@@ -3,14 +3,27 @@
 }
 
 .body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-height: 100dvh;
   overflow-y: scroll;
 }
 
-.main {
+.body__container {
+  width: 80%;
+  max-width: 1500px;
+}
+
+.main,
+.header {
   display: flex;
   justify-content: center;
   padding: 1em;
+}
+
+.header {
+  justify-content: start;
 }
 
 .main__heading {
