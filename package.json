@@ -11,7 +11,7 @@
     "start": "node .",
     "watch": "node --watch .",
     "lint": "eslint",
-    "lint:css": "stylelint",
+    "lint:css": "stylelint .",
     "prepare": "husky",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
