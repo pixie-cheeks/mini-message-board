@@ -6,8 +6,8 @@ import { errorHandler } from './errors.js';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3_000;
-const HOSTNAME = process.env.HOSTNAME || 'localhost';
-const basePage = `http://${HOSTNAME}:${PORT}`;
+// const HOSTNAME = process.env.HOSTNAME || 'localhost';
+// const basePage = `http://${HOSTNAME}:${PORT}`;
 const { dirname } = import.meta;
 const assetsPath = path.join(dirname, 'public');
 
@@ -21,6 +21,6 @@ app.use('/', indexRouter);
 
 app.use(errorHandler);
 
-app.listen(PORT, HOSTNAME, () => {
-  console.log(`Express app - listening on ${basePage}`);
+app.listen(PORT, () => {
+  console.log(`Express app - listening on port ${PORT}`);
 });
