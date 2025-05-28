@@ -1,10 +1,16 @@
 # Mini Message Board site
 
+[Live Link](https://mini-message-board-qvk1.onrender.com)✨
+
+A message board where anyone can post their message on. It has data persistence
+thanks to an online server.
+
 ## Technologies used
 
 - Express for routing
 - EJS for templating
 - DotEnv for environment setup
+- PostgreSQL for database management
 
 ## Installation
 
