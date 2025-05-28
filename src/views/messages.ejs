@@ -1,12 +1,15 @@
 <div class="messages">
-  <h1 class="main__heading">Messages</h1>
+  <div class="messages__top">
+    <h1 class="main__heading">Messages</h1>
+    <a href="/new" class="main__add-link add-link link">Add a New Message</a>
+  </div>
   <ul>
     <% for (const {text, user, added, id} of messages) { %>
     <li>
       <h2>User: <%= user %></h2>
       <p><em>Date:</em> <%= added %></p>
       <p><%= text %></p>
-      <a href="/id/<%- id %>">Open</a>
+      <a href="/id/<%- id %>" class="link">Open</a>
     </li>
     <% } %>
   </ul>

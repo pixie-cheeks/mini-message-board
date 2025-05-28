@@ -20,13 +20,11 @@ const errorHandler = (err, _req, res, _next) => {
   console.error(err);
   const { statusCode } = err;
   if (statusCode) {
-    res
-      .status(statusCode)
-      .render('index', { title: 'Error', error: err.message });
+    res.status(statusCode).render('index', { title: 'Error', error: err });
   } else {
     res.status(500).render('index', {
       title: 'Error',
-      error: 'The server encountered an error.',
+      error: { message: 'The server encountered an error.', statusCode: 500 },
     });
   }
 };

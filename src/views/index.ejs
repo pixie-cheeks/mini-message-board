@@ -11,18 +11,21 @@
 </head>
 
 <body class="body root__body">
-  <%- include('navbar') %>
-  <main class="main body__container">
-    <% if (locals.messages) { %>
-    <%- include('messages', {messages}) %>
-    <a href="/new" class="main__add-link add-link">Add a new message</a>
-    <% } else if (locals.message) { %>
-    <%- include('message', {message}) %>
-    <% } else if (locals.error) { %>
-    <%- include('error', {error}) %>
-    <% } else  { %>
-    <%- include('form') %>
-    <% } %>
+  <%- include('header') %>
+  <main class="main">
+    <div class="body__container">
+      <div class="main__container">
+        <% if (locals.messages) { %>
+        <%- include('messages', {messages}) %>
+        <% } else if (locals.message) { %>
+        <%- include('message', {message}) %>
+        <% } else if (locals.error) { %>
+        <%- include('error', {error}) %>
+        <% } else  { %>
+        <%- include('form') %>
+        <% } %>
+      </div>
+    </div>
   </main>
 </body>
 
