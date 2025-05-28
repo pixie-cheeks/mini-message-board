@@ -1,4 +1,5 @@
-import { addNewMessage } from '../db.js';
+import expressAsyncHandler from 'express-async-handler';
+import { addNewMessage } from '../db/query.js';
 
 /**
  * @param {import('express').Request} _req
@@ -8,14 +9,10 @@ const getNewMessageForm = (_req, res) => {
   res.render('index', { title: 'New Message' });
 };
 
-/**
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
-const createNewMessage = (req, res) => {
-  const { message, authorName } = req.body;
-  addNewMessage(message, authorName);
+const createNewMessage = expressAsyncHandler(async (req, res) => {
+  const { authorName, message } = req.body;
+  await addNewMessage(authorName, message);
   res.redirect('/');
-};
+});
 
 export { getNewMessageForm, createNewMessage };

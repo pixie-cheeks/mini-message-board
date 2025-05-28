@@ -1,26 +1,21 @@
-import { messages, getMessage } from '../db.js';
+import expressAsyncHandler from 'express-async-handler';
 import { CustomNotFoundError } from '../errors.js';
+import { getAllMessages, getMessage } from '../db/query.js';
 
-/**
- * @param {import('express').Request} _req
- * @param {import('express').Response} res
- */
-const getIndex = (_req, res) => {
-  res.render('index', { title: 'Mini Messageboard', messages });
-};
+const getIndex = expressAsyncHandler(async (_req, res) => {
+  res.render('index', {
+    title: 'Mini Messageboard',
+    messages: await getAllMessages(),
+  });
+});
 
-/**
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- * @param {import('express').NextFunction} next
- */
-const getUser = (req, res, next) => {
+const getUser = expressAsyncHandler(async (req, res, next) => {
   if (!/^\d+$/.test(req.params.id)) {
     next(new CustomNotFoundError('Invalid message ID'));
     return;
   }
 
-  const message = getMessage(Number(req.params.id));
+  const message = await getMessage(Number(req.params.id));
 
   if (!message) {
     next(new CustomNotFoundError('Message not found'));
@@ -31,6 +26,6 @@ const getUser = (req, res, next) => {
     title: 'Message',
     message,
   });
-};
+});
 
 export { getIndex, getUser };

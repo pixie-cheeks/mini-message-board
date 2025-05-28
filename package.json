@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "main": "src/app.js",
+  "files": [],
   "private": true,
   "engines": {
     "node": ">=21.2.0"
@@ -19,7 +20,9 @@
   "dependencies": {
     "dotenv": "16.5.0",
     "ejs": "3.1.10",
-    "express": "5.1.0"
+    "express": "5.1.0",
+    "express-async-handler": "1.2.0",
+    "pg": "8.16.0"
   },
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "1.8.0",
@@ -27,6 +30,7 @@
     "@pixie-cheeks/stylelint-config": "4.0.0",
     "@types/express": "5.0.2",
     "@types/node": "22.15.21",
+    "@types/pg": "8.15.2",
     "cspell": "9.0.2",
     "eslint": "9.27.0",
     "husky": "9.1.7",
@@ -61,8 +65,11 @@
     "words": [
       "Amando",
       "awmottaz",
-      "esbuild",
       "besthyhy",
+      "esbuild",
+      "PGDATABASE",
+      "PGHOST",
+      "PGUSER",
       "unrs"
     ],
     "ignorePaths": [

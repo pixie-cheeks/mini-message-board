@@ -15,6 +15,7 @@ export default defineConfig([
     files: ['src/**/*'],
     rules: {
       'n/no-unsupported-features/node-builtins': 'off',
+      'n/hashbang': ['error', { ignoreUnpublished: true }],
       'no-console': 'off',
     },
   },
