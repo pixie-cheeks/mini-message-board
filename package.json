@@ -73,6 +73,8 @@
       "unrs"
     ],
     "ignorePaths": [
+      ".env",
+      ".env.production",
       ".git",
       ".husky/_",
       "dist",
